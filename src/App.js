@@ -29,7 +29,7 @@ const mapboxStyleUrl =
 const openstreetmapsStyleUrl =
   "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
 const pirateTitletedViewUrl =
-  "https://api.mapbox.com/styles/v1/curtispene/cljw915nk008g01ra1ljjelb1/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY3VydGlzcGVuZSIsImEiOiJja3ptMmRkbno1NW4xMnBvMGp4Z2huNjNtIn0.gpfTLp8IoGGa-LZSGcfBmQ";
+  "https://api.mapbox.com/styles/v1/curtispene/cljw7x31i009q01rd0ygnanhq/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY3VydGlzcGVuZSIsImEiOiJja3ptMmRkbno1NW4xMnBvMGp4Z2huNjNtIn0.gpfTLp8IoGGa-LZSGcfBmQ";
 function App() {
   const mapRef = useRef();
   const barCoords = Object.values(locations);
@@ -61,7 +61,11 @@ function App() {
         ref={mapRef}
         dragging={true}
       >
-        <TileLayer url={mapboxStyleUrl} />
+        <TileLayer
+          url={
+            "https://api.mapbox.com/styles/v1/curtispene/cljyo2qg2001d01r52771cv12/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY3VydGlzcGVuZSIsImEiOiJja3ptMmRkbno1NW4xMnBvMGp4Z2huNjNtIn0.gpfTLp8IoGGa-LZSGcfBmQ"
+          }
+        />
       </MapContainer>
       <div id="overlay" style={{ textAlign: "center" }}>
         <div id="controls">
