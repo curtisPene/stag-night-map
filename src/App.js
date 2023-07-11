@@ -63,7 +63,7 @@ function App() {
       >
         <TileLayer
           url={
-            "https://api.mapbox.com/styles/v1/curtispene/cljyo8l9n001e01r5fi6v1y8u/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY3VydGlzcGVuZSIsImEiOiJja3ptMmRkbno1NW4xMnBvMGp4Z2huNjNtIn0.gpfTLp8IoGGa-LZSGcfBmQ"
+            "https://api.mapbox.com/styles/v1/curtispene/cljyonfxg001g01r58esm3a0i/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY3VydGlzcGVuZSIsImEiOiJja3ptMmRkbno1NW4xMnBvMGp4Z2huNjNtIn0.gpfTLp8IoGGa-LZSGcfBmQ"
           }
         />
       </MapContainer>
