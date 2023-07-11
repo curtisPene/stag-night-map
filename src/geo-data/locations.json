@@ -1,0 +1,81 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Friends Night Club"
+      },
+      "geometry": {
+        "coordinates": [178.42649037937554, -18.13834760055829],
+        "type": "Point"
+      },
+      "id": 0
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Preve"
+      },
+      "geometry": {
+        "coordinates": [178.43111446554315, -18.139941466554575],
+        "type": "Point"
+      },
+      "id": 1
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hilltop Tavern"
+      },
+      "geometry": {
+        "coordinates": [178.4243825176424, -18.143253347063037],
+        "type": "Point"
+      },
+      "id": 2
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hide N Seek"
+      },
+      "geometry": {
+        "coordinates": [178.42617499853714, -18.13351297312643],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mana"
+      },
+      "geometry": {
+        "coordinates": [178.42740307300767, -18.142785848352574],
+        "type": "Point"
+      },
+      "id": 4
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "O'Reillys"
+      },
+      "geometry": {
+        "coordinates": [178.42357780343582, -18.141773867547556],
+        "type": "Point"
+      },
+      "id": 5
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Down Under"
+      },
+      "geometry": {
+        "coordinates": [178.42377526937014, -18.14421502998607],
+        "type": "Point"
+      },
+      "id": 6
+    }
+  ]
+}
