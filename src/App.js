@@ -72,9 +72,7 @@ function App() {
         {barCoords.map((bar, index) => {
           return (
             <Marker position={bar}>
-              <Popup className="request-popup leaflet-popup-content-wrapper">
-                {locationNames[index]}
-              </Popup>
+              <Popup>{locationNames[index]}</Popup>
             </Marker>
           );
         })}
