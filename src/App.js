@@ -35,8 +35,7 @@ function App() {
   const barCoords = Object.values(locations);
   console.log(barCoords);
   useEffect(() => {
-    // const barsGeoJson = new L.geoJSON(bars);
-    // barsGeoJson.addTo(mapRef);
+    window.scrollTo(0, document.body.scrollHeight);
   }, []);
 
   const flyTo = (e) => {
@@ -56,7 +55,7 @@ function App() {
     <>
       <MapContainer
         center={[-17.8373, 177.9579]}
-        zoom={18}
+        zoom={7}
         scrollWheelZoom={true}
         ref={mapRef}
         dragging={false}
