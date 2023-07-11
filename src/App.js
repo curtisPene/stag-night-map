@@ -59,7 +59,7 @@ function App() {
         zoom={18}
         scrollWheelZoom={true}
         ref={mapRef}
-        dragging={true}
+        dragging={false}
       >
         <TileLayer
           url={
