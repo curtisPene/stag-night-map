@@ -55,7 +55,7 @@ function App() {
   return (
     <>
       <MapContainer
-        center={locations.manaCoffee}
+        center={[-17.8373, 177.9579]}
         zoom={18}
         scrollWheelZoom={true}
         ref={mapRef}
