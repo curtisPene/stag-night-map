@@ -4,13 +4,6 @@ import { useEffect, useRef } from "react";
 import L from "leaflet";
 import bars from "../src/geo-data/locations.json";
 
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconeRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
-  iconUrl: require("leaflet/dist/images/marker-icon.png"),
-  shadoUrl: require("leaflet/dist/images/marker-shadow.png"),
-});
-
 const locations = {
   manaCoffee: [-18.14266, 178.42756],
   preve: [-18.1399, 178.4311],
@@ -66,16 +59,9 @@ function App() {
         zoom={18}
         scrollWheelZoom={true}
         ref={mapRef}
-        dragging={false}
+        dragging={true}
       >
         <TileLayer url={mapboxStyleUrl} />
-        {barCoords.map((bar, index) => {
-          return (
-            <Marker position={bar}>
-              <Popup>{locationNames[index]}</Popup>
-            </Marker>
-          );
-        })}
       </MapContainer>
       <div id="overlay" style={{ textAlign: "center" }}>
         <div id="controls">
