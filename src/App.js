@@ -3,7 +3,7 @@ import "leaflet/dist/leaflet.css";
 import { useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
 
-const socket = io.connect("http://localhost:5000");
+// const socket = io.connect("http://localhost:5000");
 
 const locations = {
   manaCoffee: [-18.14266, 178.42756],
@@ -36,17 +36,17 @@ function App() {
   const barCoords = Object.values(locations);
   useEffect(() => {
     window.scrollTo(0, document.body.scrollHeight);
-    socket.on("change_location", (data) => {
-      console.log(data.flyTo);
-      flyTo(data.flyTo);
-    });
-  }, [socket]);
+    // socket.on("change_location", (data) => {
+    //   console.log(data.flyTo);
+    //   flyTo(data.flyTo);
+    // });
+  }, []);
 
   const flyTo = (location) => {
     if (!showMarkers) {
       setShowMarkers(true);
     }
-    // const location = e.target.name;
+    const location = e.target.name;
 
     console.log(locations[location]);
     mapRef.current.flyTo(locations[location], 18, { duration: 1.5 });
