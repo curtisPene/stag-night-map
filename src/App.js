@@ -1,8 +1,6 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { useEffect, useRef } from "react";
-import L from "leaflet";
-import bars from "../src/geo-data/locations.json";
+import { useEffect, useRef, useState } from "react";
 
 const locations = {
   manaCoffee: [-18.14266, 178.42756],
@@ -24,37 +22,31 @@ const locationNames = [
   "O'Reillys",
 ];
 
-const mapboxStyleUrl =
-  "https://api.mapbox.com/styles/v1/curtispene/cljw7x31i009q01rd0ygnanhq/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY3VydGlzcGVuZSIsImEiOiJja3ptMmRkbno1NW4xMnBvMGp4Z2huNjNtIn0.gpfTLp8IoGGa-LZSGcfBmQ";
-const openstreetmapsStyleUrl =
-  "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
-const pirateTitletedViewUrl =
-  "https://api.mapbox.com/styles/v1/curtispene/cljw7x31i009q01rd0ygnanhq/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY3VydGlzcGVuZSIsImEiOiJja3ptMmRkbno1NW4xMnBvMGp4Z2huNjNtIn0.gpfTLp8IoGGa-LZSGcfBmQ";
+const rumrunnersHavenMapWithMarkers =
+  "https://api.mapbox.com/styles/v1/curtispene/cljyonfxg001g01r58esm3a0i/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY3VydGlzcGVuZSIsImEiOiJja3ptMmRkbno1NW4xMnBvMGp4Z2huNjNtIn0.gpfTLp8IoGGa-LZSGcfBmQ";
+const rumrunnersHavenMapNoMarkers =
+  "https://api.mapbox.com/styles/v1/curtispene/cljyo8l9n001e01r5fi6v1y8u/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY3VydGlzcGVuZSIsImEiOiJja3ptMmRkbno1NW4xMnBvMGp4Z2huNjNtIn0.gpfTLp8IoGGa-LZSGcfBmQ";
 function App() {
   const mapRef = useRef();
+  const [showMarkers, setShowMarkers] = useState(false);
   const barCoords = Object.values(locations);
-  console.log(barCoords);
   useEffect(() => {
     window.scrollTo(0, document.body.scrollHeight);
-  }, []);
+  }, [showMarkers]);
 
   const flyTo = (e) => {
+    if (!showMarkers) {
+      setShowMarkers(true);
+    }
     const location = e.target.name;
     console.log(locations[location]);
     mapRef.current.flyTo(locations[location], 18, { duration: 1.5 });
   };
 
-  // const barIcon = new L.icon({ iconUrl: skullMarker });
-  // const bars = new L.GeoJSON(barGeoJSON, {
-  //   onEachFeature: (feature = {}, layer) => {
-  //     const {}
-  //   }
-  // });
-
   return (
     <>
       <MapContainer
-        center={[-17.8373, 177.9579]}
+        center={[-17.817, 178.679]}
         zoom={7}
         scrollWheelZoom={true}
         ref={mapRef}
@@ -62,7 +54,9 @@ function App() {
       >
         <TileLayer
           url={
-            "https://api.mapbox.com/styles/v1/curtispene/cljyonfxg001g01r58esm3a0i/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY3VydGlzcGVuZSIsImEiOiJja3ptMmRkbno1NW4xMnBvMGp4Z2huNjNtIn0.gpfTLp8IoGGa-LZSGcfBmQ"
+            showMarkers
+              ? rumrunnersHavenMapWithMarkers
+              : rumrunnersHavenMapNoMarkers
           }
         />
       </MapContainer>
