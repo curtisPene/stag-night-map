@@ -42,7 +42,7 @@ function App() {
     // });
   }, []);
 
-  const flyTo = (location) => {
+  const flyTo = (e) => {
     if (!showMarkers) {
       setShowMarkers(true);
     }
