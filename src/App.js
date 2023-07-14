@@ -1,6 +1,9 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useEffect, useRef, useState } from "react";
+import { io } from "socket.io-client";
+
+const socket = io.connect("http://localhost:5000");
 
 const locations = {
   manaCoffee: [-18.14266, 178.42756],
@@ -29,16 +32,22 @@ const rumrunnersHavenMapNoMarkers =
 function App() {
   const mapRef = useRef();
   const [showMarkers, setShowMarkers] = useState(false);
+
   const barCoords = Object.values(locations);
   useEffect(() => {
     window.scrollTo(0, document.body.scrollHeight);
-  }, [showMarkers]);
+    socket.on("change_location", (data) => {
+      console.log(data.flyTo);
+      flyTo(data.flyTo);
+    });
+  }, [socket]);
 
-  const flyTo = (e) => {
+  const flyTo = (location) => {
     if (!showMarkers) {
       setShowMarkers(true);
     }
-    const location = e.target.name;
+    // const location = e.target.name;
+
     console.log(locations[location]);
     mapRef.current.flyTo(locations[location], 18, { duration: 1.5 });
   };
