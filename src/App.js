@@ -75,7 +75,7 @@ function App() {
             Mana
           </button>
           <button onClick={flyTo} name="preve">
-            Preve
+            Prive
           </button>
           <button onClick={flyTo} name="hideNSeek">
             Hide N Seek
